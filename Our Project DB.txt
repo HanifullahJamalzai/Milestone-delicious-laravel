@@ -1,0 +1,80 @@
+Setting:
+    - phone
+    - open_time
+    - footer_description
+    - twitter_link
+    - facebook_link
+    - instagram_link
+    - skype_link
+    - linkedin_link
+
+Slider:
+    - title
+    - description
+    - photo
+
+Hero:
+    - title
+    - description
+    - photo
+    - youtube_link
+
+Why_choose_us:
+    - title
+    - description
+
+Category:
+    - name
+
+Food:
+    - name
+    - category_id
+    - description
+    - price
+    - photo
+
+Special:
+    - show_title
+    - detail_title
+    - description
+    - photo
+
+Event:
+    - title
+    - price
+    - description
+    - photo
+
+Book:
+    - name
+    - email
+    - phone
+    - date
+    - no_people
+    - message
+
+Gallery:
+    - photo
+
+Cook:
+    - name
+    - position
+
+Testimonial:
+    - name
+    - position
+    - description
+    - photo
+
+Contact:
+    - description
+    - map_link
+    - address
+    - email
+
+Message:
+    - name
+    - email
+    - subject
+    - message
+
