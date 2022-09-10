@@ -1,23 +1,17 @@
 <?php
 
+use App\Http\Controllers\landing\LandingController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('landing.index');
-});
-Route::get('/event', function () {
-    return view('landing.event');
-});
-Route::get('/about', function () {
-    return view('landing.about');
-});
-Route::get('/contact', function () {
-    return view('landing.contact');
-});
-Route::get('/menu', function () {
-    return view('landing.menu');
-});
+Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/event', [LandingController::class, 'event'])->name('event');
+Route::get('/about', [LandingController::class, 'about'])->name('about');
+Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
+
+
+
 
 
 Route::get('/admin', function(){
