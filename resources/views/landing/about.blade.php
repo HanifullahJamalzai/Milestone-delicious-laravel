@@ -8,7 +8,7 @@
   
           <div class="row">
   
-            <div class="col-lg-5 align-items-stretch video-box" style='background-image: url("assets/img/about.jpg");'>
+            <div class="col-lg-5 align-items-stretch video-box" style='background-image: url({{ asset('landing_assets/img/about.jpg') }});'>
               <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
             </div>
   
