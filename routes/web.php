@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\landing\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,6 @@ Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
 
 
 
-Route::get('/admin', function(){
-    return view('admin.index');
-});
+Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
