@@ -17,6 +17,7 @@ Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
 
 
 
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.user');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
