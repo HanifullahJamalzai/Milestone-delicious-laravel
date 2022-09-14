@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Why_choose_us;
 
 class WCUController extends Controller
 {
@@ -14,7 +15,9 @@ class WCUController extends Controller
      */
     public function index()
     {
-        return view('admin.wcu.index');
+        $data = Why_choose_us::all();
+        // dd($data);
+        return view('admin.wcu.index', compact('data'));
     }
 
     /**

@@ -27,4 +27,4 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-Route::get('/wcu', [WCUController::class, 'index']);
+Route::get('/wcu', [WCUController::class, 'index'])->name('admin.wcu');
