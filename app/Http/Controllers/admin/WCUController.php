@@ -27,7 +27,7 @@ class WCUController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.wcu.create');
     }
 
     /**
@@ -38,7 +38,18 @@ class WCUController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'       => 'required|min:4|max:255',
+            'description' => 'required|min:5',
+        ]);
+
+        // dd($request->all());
+        Why_choose_us::create([
+            'title'  => $request->title,
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('admin.wcu');
     }
 
     /**
@@ -83,6 +94,7 @@ class WCUController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Why_choose_us::find($id)->delete();
+        return redirect()->route('admin.wcu');
     }
 }

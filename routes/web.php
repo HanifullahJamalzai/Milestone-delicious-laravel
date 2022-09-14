@@ -28,3 +28,6 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/wcu', [WCUController::class, 'index'])->name('admin.wcu');
+Route::get('/wcu/create', [WCUController::class, 'create'])->name('admin.wcu.create');
+Route::post('/wcu/store', [WCUController::class, 'store'])->name('admin.wcu.store');
+Route::delete('/wcu/delete/{id}', [WCUController::class, 'destroy'])->name('admin.wcu.delete');
