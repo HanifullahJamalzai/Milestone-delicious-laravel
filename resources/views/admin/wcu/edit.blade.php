@@ -2,6 +2,10 @@
 
 @section('contents')
 
+{{-- @php
+    dd($data)
+@endphp --}}
+
 <div class="pagetitle">
     <h1>Why Choose Us</h1>
     <nav style="display: flex; justify-content: space-between;">
@@ -29,13 +33,14 @@
                     <h5 class="card-title">General Form Elements</h5>
       
                     <!-- General Form Elements -->
-                    <form action="{{ route('admin.wcu.store') }}" method="post">
+                    <form action="{{ route('admin.wcu.update', ['id' => $data->id]) }}" method="post">
                         @csrf
+                        @method('put')
 
                       <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
-                          <input type="text" name="title" class="form-control" value="{{ old('title')  }}">
+                          <input type="text" name="title" class="form-control" value="{{ isset($data) ? $data->title : old('title') }}">
                         </div>
                         @error('title') 
                             <span class="text text-danger">{{ $message }}</span>
@@ -45,7 +50,7 @@
                       <div class="row mb-3">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                          <textarea class="form-control" name="description" style="height: 100px">{{ old('description') }}</textarea>
+                          <textarea class="form-control" name="description" style="height: 100px">@if(isset($data)){{ $data->description }}@else{{ old('description') }}@endif</textarea>
                         </div>
                             @error('description') 
                                 <span class="text text-danger">{{ $message }}</span>

@@ -1,10 +1,6 @@
 @extends('admin.layouts.index')
 
 @section('contents')
-{{-- 
-@php
-    dd($data);
-@endphp --}}
 
 <div class="pagetitle">
     <h1>Why Choose Us</h1>
@@ -24,6 +20,8 @@
   </div>
 
 
+  @include('common.alert')
+
 
 <section class="section">
     <div class="row align-items-top">
@@ -33,7 +31,7 @@
         <!-- Card with an image on top -->
         <div class="card">
             <div style="display: flex; justify-content: space-around; padding-top: 0.4em;">
-                <a href="{{ route('admin.wcu.create') }}">
+                <a href="{{ route('admin.wcu.edit', ['id' => $item->id]) }}">
                     <i class="bi bi-pencil" style="font-size: 1.3em; color: red;"></i>
                 </a>
                 <form action="{{ route('admin.wcu.delete', ['id' => $item->id]) }}" method="POST">

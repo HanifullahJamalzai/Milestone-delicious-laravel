@@ -48,6 +48,7 @@ class WCUController extends Controller
             'title'  => $request->title,
             'description' => $request->description
         ]);
+        session()->flash('success', 'You have Successfully Added a Category');
 
         return redirect()->route('admin.wcu');
     }
@@ -71,7 +72,10 @@ class WCUController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Why_choose_us::findOrFail($id);
+        // dd($data);
+
+        return view('admin.wcu.edit')->with('data', $data);
     }
 
     /**
@@ -83,7 +87,16 @@ class WCUController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'       => 'required|min:4|max:255',
+            'description' => 'required|min:5',
+        ]);
+
+        $oldRow = Why_choose_us::findOrFail($id);
+        $oldRow->update(['title' => $request->title, 'description' => $request->description]);
+
+        session()->flash('success', 'You have successfully updated the Row');
+        return redirect()->route('admin.wcu');
     }
 
     /**
@@ -95,6 +108,7 @@ class WCUController extends Controller
     public function destroy($id)
     {
         Why_choose_us::find($id)->delete();
+        session()->flash('success', 'You have Successfully Deleted a Category');
         return redirect()->route('admin.wcu');
     }
 }

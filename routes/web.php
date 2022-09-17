@@ -16,18 +16,26 @@ Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
 
 
+Route::middleware(['guest'])->group(function () {
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.user');
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');    
+});
 
 
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.user');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::group(['middleware' => 'auth'], function(){
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+    
+    Route::get('/wcu', [WCUController::class, 'index'])->name('admin.wcu');
+    Route::get('/wcu/create', [WCUController::class, 'create'])->name('admin.wcu.create');
+    Route::post('/wcu/store', [WCUController::class, 'store'])->name('admin.wcu.store');
+    Route::delete('/wcu/delete/{id}', [WCUController::class, 'destroy'])->name('admin.wcu.delete');
+    Route::get('/wcu/{id}/edit', [WCUController::class, 'edit'])->name('admin.wcu.edit');
+    Route::put('/wcu/{id}/update', [WCUController::class, 'update'])->name('admin.wcu.update');
+});
 
-Route::get('/wcu', [WCUController::class, 'index'])->name('admin.wcu');
-Route::get('/wcu/create', [WCUController::class, 'create'])->name('admin.wcu.create');
-Route::post('/wcu/store', [WCUController::class, 'store'])->name('admin.wcu.store');
-Route::delete('/wcu/delete/{id}', [WCUController::class, 'destroy'])->name('admin.wcu.delete');
+
