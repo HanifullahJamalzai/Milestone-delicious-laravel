@@ -11,4 +11,9 @@ class Category extends Model
 
     protected $fillable = ['name'];
     // protected $guarded = [];
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
 }

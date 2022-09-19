@@ -53,7 +53,8 @@
                                 <img src="{{ $item->photo }}" alt="" width="50">
                             </td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->category_id }}</td>
+                            {{-- <td>{{ $item->category_id }}</td> --}}
+                            <td>{{ $item->category->name }}</td>
                             <td>{{ $item->price }}</td>
                             <td><a href="{{ route('food.edit', ['food' => $item->id]) }}">Edit</a></td>
                             <td>Delete</td>
@@ -63,6 +64,8 @@
                 </tbody>
               </table>
               <!-- End Table with hoverable rows -->
+
+              {{-- {{ foods()->links }} --}}
 
             </div>
           </div>
