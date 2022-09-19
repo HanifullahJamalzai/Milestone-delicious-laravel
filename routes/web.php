@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\FoodController;
 use App\Http\Controllers\admin\WCUController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
@@ -40,6 +41,8 @@ Route::group(['middleware' => 'auth'], function(){
     
     // Resource Route
     Route::resource('category', CategoryController::class);
+    Route::resource('food', FoodController::class);
+    
 });
 
 

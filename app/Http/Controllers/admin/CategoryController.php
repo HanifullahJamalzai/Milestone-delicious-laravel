@@ -58,6 +58,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
+    // Route Model Binding
     public function edit(Category $category)
     {
         dd($category);
