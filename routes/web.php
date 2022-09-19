@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\WCUController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
@@ -36,6 +37,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/wcu/delete/{id}', [WCUController::class, 'destroy'])->name('admin.wcu.delete');
     Route::get('/wcu/{id}/edit', [WCUController::class, 'edit'])->name('admin.wcu.edit');
     Route::put('/wcu/{id}/update', [WCUController::class, 'update'])->name('admin.wcu.update');
+    
+    // Resource Route
+    Route::resource('category', CategoryController::class);
 });
 
 

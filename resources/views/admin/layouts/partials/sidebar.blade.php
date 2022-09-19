@@ -18,15 +18,21 @@
 
       <!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="{{ route('category.index') }}">
           <i class="bi bi-grid"></i>
-          <span>Book</span>
+          <span>Category</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.html">
           <i class="bi bi-grid"></i>
-          <span>Category</span>
+          <span>Food</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Book</span>
         </a>
       </li>
       <li class="nav-item">
@@ -45,12 +51,6 @@
         <a class="nav-link collapsed" href="index.html">
           <i class="bi bi-grid"></i>
           <span>Event</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Food</span>
         </a>
       </li>
       <li class="nav-item">
