@@ -47,7 +47,7 @@
                         <tr>
                             <th scope="row">{{ $x++ }}</th>
                             <td>{{ $item->name }}</td>
-                            <td>Edit</td>
+                            <td><a href="{{ route('category.edit', ['category' => $item->id]) }}">Edit</a></td>
                             <td>Delete</td>
                         </tr>
                     @endforeach
