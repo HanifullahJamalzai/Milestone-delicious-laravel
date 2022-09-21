@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Food;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class FoodController extends Controller
@@ -56,9 +57,18 @@ class FoodController extends Controller
 
         if($request->hasFile('photo'))
         {
-            return 'File exist';
+            // dd($request->photo);
+            $fileName = 'food_'.date('YmdHis').'_'.rand(10, 10000).'.'.$request->photo->extension();
+            // return $fileName;
+            $request->photo->storeAs('/photo/food', $fileName, 'public');
+            // Store to DB
+            $food->photo = '/storage/photo/food/'.$fileName;
         }
-        return 'file not exist';
+        $food->save();
+        session()->flash('success', 'You have Successfully added Food' );
+        // Session::flash('success', 'You have Successfully added Food');
+
+        return redirect('/food');
     }
 
 

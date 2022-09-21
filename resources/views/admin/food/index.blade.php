@@ -54,7 +54,7 @@
                             </td>
                             <td>{{ $item->name }}</td>
                             {{-- <td>{{ $item->category_id }}</td> --}}
-                            <td>{{ $item->category->name }}</td>
+                            <td>{{ $item->category->name ?? 'No Category' }}</td>
                             <td>{{ $item->price }}</td>
                             <td><a href="{{ route('food.edit', ['food' => $item->id]) }}">Edit</a></td>
                             <td>Delete</td>
