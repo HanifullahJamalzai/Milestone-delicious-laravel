@@ -15,6 +15,16 @@
 
             <div class="card-body">
                 <h5 class="card-title">Floating labels Form</h5>
+                
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
   
                 <!-- Floating Labels Form -->
                 <form class="row g-3" action="{{ route('food.store') }}" method="post" enctype="multipart/form-data">
@@ -23,7 +33,7 @@
 
                   <div class="col-md-12">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingName" placeholder="Your Name" value="{{ old('name') }}">
+                      <input type="text" name="name" class="form-control" id="floatingName" placeholder="Your Name" value="{{ old('name') }}">
                       <label for="floatingName">Food Name</label>
                     </div>
                   </div>

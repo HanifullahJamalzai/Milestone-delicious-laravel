@@ -39,8 +39,28 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'description' => 'required|min:4',
+            'price' => 'required',
+            'category_id' => 'required',
+            'photo' => 'required',
+        ],
+        ['name.required' => 'بدون نام بود لالا جان ', 'name.min' => 'نام کمتر از ۳ کرکتر بود لالا جان']
+    );
+        $food = new Food();
+        $food->name = $request->name;
+        $food->description = $request->description;
+        $food->price = $request->price;
+        $food->category_id = $request->category_id;
+
+        if($request->hasFile('photo'))
+        {
+            return 'File exist';
+        }
+        return 'file not exist';
     }
+
 
     /**
      * Display the specified resource.
