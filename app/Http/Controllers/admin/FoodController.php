@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Food;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.food.create', compact('categories'));
     }
 
     /**
@@ -37,7 +39,7 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
