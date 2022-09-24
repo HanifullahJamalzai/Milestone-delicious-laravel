@@ -90,9 +90,10 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Food $food)
     {
-        //
+        $categories = Category::all();
+        return view('admin.food.edit', compact('food', 'categories'));
     }
 
     /**
@@ -102,9 +103,35 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Food $food)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3|max:255',
+            'description' => 'required|min:4',
+            'price' => 'required',
+            'category_id' => 'required',
+        ]);
+        
+        // $food->update($request->all());
+
+        $data = $request->all();
+        // $data['photo'] = 'alpha.jpg';
+        // dd($data);
+        if($request->hasFile('photo'))
+        {
+            @unlink(public_path().'/'.$food->photo);
+
+            // dd($request->photo);
+            $fileName = 'food_'.date('YmdHis').'_'.rand(10, 10000).'.'.$request->photo->extension();
+            // return $fileName;
+            $request->photo->storeAs('/photo/food', $fileName, 'public');
+            // Store to DB
+            $data['photo'] = '/storage/photo/food/'.$fileName;
+        }
+
+        $food->update($data);
+        session()->flash('success', 'You have successfully updated food');
+        return redirect()->route('food.index');
     }
 
     /**
