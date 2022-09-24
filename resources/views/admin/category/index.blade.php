@@ -11,7 +11,7 @@
       </ol>
       <div>
         <span class="btn btn-primary btn-sm">
-            <a href="{{ route('admin.wcu.create') }}">
+            <a href="{{ route('category.create') }}">
                 <i class="bi bi-plus" style="font-size: 1.3em; color: white;"></i>
             </a>
         </span>

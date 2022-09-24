@@ -29,7 +29,7 @@
                     <h5 class="card-title">General Form Elements</h5>
       
                     <!-- General Form Elements -->
-                    <form action="{{ route('admin.wcu.store') }}" method="post">
+                    <form action="{{ route('admin.wcu.store') }}" id="form" method="post">
                         @csrf
 
                       <div class="row mb-3">
@@ -55,7 +55,7 @@
                       <div class="row mb-3">
                         <label class="col-sm-2 col-form-label">Submit Button</label>
                         <div class="col-sm-10">
-                          <button type="submit" class="btn btn-primary">Submit Form</button>
+                          <button type="submit" class="btn btn-primary" id="submit">Submit Form</button>
                         </div>
                       </div>
       
@@ -75,3 +75,4 @@
 
 
 @endsection
+

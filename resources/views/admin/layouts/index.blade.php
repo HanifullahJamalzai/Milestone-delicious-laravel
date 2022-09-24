@@ -57,6 +57,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{ asset('admin_assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('admin_assets/vendor/chart.js/chart.min.js') }}"></script>
@@ -68,6 +69,17 @@
 
 <!-- Template Main JS File -->
 <script src="{{ asset('admin_assets/js/main.js') }}"></script>
+
+<script type="text/javascript">
+  
+    (function(){
+    $('#form').on('submit', function(){
+        $('#submit').attr('disabled','true');
+    })
+    })();
+  
+  </script>
+
 
 </body>
 

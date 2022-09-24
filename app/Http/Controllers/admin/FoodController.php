@@ -17,7 +17,8 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::all();
+        // $foods = Food::all();
+        $foods = Food::paginate(10);
         return view('admin.food.index', compact('foods'));
     }
 

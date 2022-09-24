@@ -26,7 +26,7 @@
 <section class="section">
     <div class="row align-items-top">
 
-        <div class="card">
+      <div class="card">
             <div class="card-body">
               <h5 class="card-title">Table with hoverable rows</h5>
 
@@ -65,7 +65,7 @@
               </table>
               <!-- End Table with hoverable rows -->
 
-              {{-- {{ foods()->links }} --}}
+              {{ $foods->links() }}
 
             </div>
           </div>

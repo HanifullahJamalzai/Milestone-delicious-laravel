@@ -48,7 +48,12 @@ class WCUController extends Controller
             'title'  => $request->title,
             'description' => $request->description
         ]);
-        session()->flash('success', 'You have Successfully Added a Category');
+        // $wcu = new Why_choose_us();
+        // $wcu->title = $request->title;
+        // $wcu->description = $request->description;
+        // $wcu->save();
+
+        session()->flash('success', 'You have Successfully Added a WCU');
 
         return redirect()->route('admin.wcu');
     }
