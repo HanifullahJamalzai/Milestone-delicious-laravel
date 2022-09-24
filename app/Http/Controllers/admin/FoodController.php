@@ -140,8 +140,13 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+
+        @unlink(public_path().'/'.$food->photo);
+        $food->delete();
+        
+        session()->flash('success', 'You have successfully updated food');
+        return redirect()->route('food.index');
     }
 }

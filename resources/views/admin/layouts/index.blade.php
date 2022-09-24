@@ -71,14 +71,14 @@
 <script src="{{ asset('admin_assets/js/main.js') }}"></script>
 
 <script type="text/javascript">
-  
+
     (function(){
     $('#form').on('submit', function(){
         $('#submit').attr('disabled','true');
     })
     })();
   
-  </script>
+</script>
 
 
 </body>
