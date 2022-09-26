@@ -16,13 +16,6 @@
             </a>
         </span>
       </div>
-      <div>
-        <span class="btn btn-primary btn-sm">
-            <a href="{{ route('food.trash') }}">
-                <i class="bi bi-trash" style="font-size: 1.3em; color: white;"></i>
-            </a>
-        </span>
-      </div>
     </nav>
   </div>
 
@@ -65,10 +58,13 @@
                             <td>{{ $item->price }}</td>
                             <td><a href="{{ route('food.edit', ['food' => $item->id]) }}">Edit</a></td>
                             <td>
-                              <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
+                                <a  href="{{ route('food.restoreItem', ['food' => $item]) }}" class="btn btn-success" >restore</a>
+                            </td>
+                            <td>
+                              <form action="{{ route('food.pdelete', ['food' => $item]) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger" >Delete</button>
+                                <button type="submit" class="btn btn-danger" >PDelete</button>
                               </form>
                             </td>
                         </tr>

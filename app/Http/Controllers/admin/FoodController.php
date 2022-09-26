@@ -143,10 +143,37 @@ class FoodController extends Controller
     public function destroy(Food $food)
     {
 
-        @unlink(public_path().'/'.$food->photo);
         $food->delete();
+        // @unlink(public_path().'/'.$food->photo);
+        // $food->delete();
         
         session()->flash('success', 'You have successfully updated food');
+        return redirect()->route('food.index');
+    }
+
+    public function PermanentDelete($food)
+    {
+        $food = Food::onlyTrashed()->find($food);
+        
+        @unlink(public_path().'/'.$food->photo);
+        $food->forceDelete();
+        session()->flash('success', 'You have successfully updated food');
+        return redirect()->route('food.index');
+    }
+    
+
+    public function trash()
+    {
+        $foods = Food::onlyTrashed()->paginate(10);
+        return view('admin.food.recycle', compact('foods'));
+    }
+
+    public function RestoreItem($food)
+    {
+        $food = Food::onlyTrashed()->find($food);
+        $food->restore();
+
+        session()->flash('success', 'You have successfully Restored food');
         return redirect()->route('food.index');
     }
 }

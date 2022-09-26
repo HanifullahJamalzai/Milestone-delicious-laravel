@@ -40,8 +40,8 @@
 
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea class="form-control" placeholder="description" name="description" id="floatingTextarea" style="height: 100px;">{{ old('description') }}</textarea>
-                      <label for="floatingTextarea">Description</label>
+                      <textarea class="form-control tinymce-editor" placeholder="description" name="description" id="floatingTextarea" style="height: 100px;">{{ old('description') }}</textarea>
+                      {{-- <label for="floatingTextarea">Description</label> --}}
                     </div>
                   </div>
 
