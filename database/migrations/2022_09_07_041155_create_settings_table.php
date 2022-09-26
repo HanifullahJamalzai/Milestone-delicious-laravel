@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('open_time');
             $table->string('footer_description');
             $table->string('twitter_link');
