@@ -18,7 +18,7 @@ class SliderFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'description' => fake()->sentence(5),
+            'description' => fake()->paragraph(5),
             'photo' => fake()->imageUrl($width = 1800, $height = 1200),
         ];
     }

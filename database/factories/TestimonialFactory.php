@@ -20,7 +20,7 @@ class TestimonialFactory extends Factory
             'name' => fake()->name(),
             'position' => fake()->jobTitle(),
             'photo' => fake()->imageUrl($width = 400, $height = 400), 
-            'description' => fake()->sentence(3),
+            'description' => fake()->paragraph(4),
         ];
     }
 }
