@@ -9,7 +9,6 @@ use App\Models\Event;
 use App\Models\Food;
 use App\Models\Gallery;
 use App\Models\Hero;
-use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Special;
 use App\Models\Testimonial;
@@ -19,7 +18,6 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $setting = Setting::first();
         $sliders = Slider::all();
         $wcu = Why_choose_us::all();
         $photos = Gallery::inRandomOrder()->limit(4)->get();
@@ -28,36 +26,31 @@ class LandingController extends Controller
 
         // dd($cooks[1]['photo']);
 
-        return view('landing.index', compact('setting', 'sliders', 'wcu', 'photos', 'cooks', 'testimonials'));
+        return view('landing.index', compact('sliders', 'wcu', 'photos', 'cooks', 'testimonials'));
     }
 
     public function event()
     {
-        $setting = Setting::first();
         $events  = Event::all();
-
-        return view('landing.event', compact('setting', 'events'));
+        return view('landing.event', compact('events'));
     }
 
     public function about()
     {
-        $setting = Setting::first();
         $hero = Hero::first();
-        return view('landing.about', compact('setting', 'hero'));
+        return view('landing.about', compact('hero'));
     }
 
     public function contact()
     {
-        $setting = Setting::first();
         $contact = Contact::first();
-        return view('landing.contact', compact('setting', 'contact'));
+        return view('landing.contact', compact('contact'));
     }
 
     public function menu()
     {
-        $setting = Setting::first();
         $food = Food::all();
         $special = Special::all();
-        return view('landing.menu', compact('setting', 'food', 'special'));
+        return view('landing.menu', compact('food', 'special'));
     }
 }

@@ -12,11 +12,15 @@ use App\Models\Food;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [LandingController::class, 'index'])->name('home');
-Route::get('/event', [LandingController::class, 'event'])->name('event');
-Route::get('/about', [LandingController::class, 'about'])->name('about');
-Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
-Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
+// Landing Page Routes
+Route::middleware(['SettingMiddleware'])->group(function(){
+    Route::get('/', [LandingController::class, 'index'])->name('home');
+    Route::get('/event', [LandingController::class, 'event'])->name('event');
+    Route::get('/about', [LandingController::class, 'about'])->name('about');
+
+    Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+    Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
+});
 
 
 Route::middleware(['guest'])->group(function () {
