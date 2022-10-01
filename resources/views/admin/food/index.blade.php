@@ -68,7 +68,7 @@
                             {{-- <td>{{ $item->category_id }}</td> --}}
                             <td>{{ $item->category->name ?? 'No Category' }}</td>
                             <td>{{ $item->price }}</td>
-                            <td><a href="{{ route('food.edit', ['food' => $item->id]) }}">Edit</a></td>
+                            <td><a href="{{ route('food.edit', ['food' => $item->id, 'slug' => Str::slug($item->name, '-')]) }}">Edit</a></td>
                             <td>
                               <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
                                 @csrf

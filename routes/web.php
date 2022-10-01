@@ -42,9 +42,12 @@ Route::group(['middleware' => 'auth'], function(){
     
     // Resource Route
     Route::resource('category', CategoryController::class);
+
+    Route::get('/food/{id}/edit/{slug}', [FoodController::class, 'edit'])->name('food.edit');
     Route::get('food/search', [FoodController::class, 'search'])->name('food.search');
     Route::get('food/trash', [FoodController::class, 'trash'])->name('food.trash');
     Route::delete('food/permanent-delete/{food}', [FoodController::class, 'PermanentDelete'])->name('food.pdelete');
+    
     Route::resource('food', FoodController::class);
    
     Route::get('food/restore/{food}', [FoodController::class, 'RestoreItem'])->name('food.restoreItem');
