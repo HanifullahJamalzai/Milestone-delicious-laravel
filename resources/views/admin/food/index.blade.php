@@ -3,12 +3,17 @@
 @section('contents')
 
 <div class="pagetitle">
-    <h1>Why Choose Us</h1>
+    {{-- <h1>Why Choose Us</h1> --}}
     <nav style="display: flex; justify-content: space-between;">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
-        <li class="breadcrumb-item active">Food</li>
-      </ol>
+      
+      <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="GET" action="{{ route('food.search') }}">
+          <input type="text" name="search" placeholder="Search" title="Enter search keyword">
+          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+      </div><!-- End Search Bar -->
+
+
       <div>
         <span class="btn btn-primary btn-sm">
             <a href="{{ route('food.create') }}">

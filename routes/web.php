@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\landing\LandingController;
+use App\Models\Food;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,8 +42,8 @@ Route::group(['middleware' => 'auth'], function(){
     
     // Resource Route
     Route::resource('category', CategoryController::class);
-    
-    Route::get('food/trash',[FoodController::class, 'trash'])->name('food.trash');
+    Route::get('food/search', [FoodController::class, 'search'])->name('food.search');
+    Route::get('food/trash', [FoodController::class, 'trash'])->name('food.trash');
     Route::delete('food/permanent-delete/{food}', [FoodController::class, 'PermanentDelete'])->name('food.pdelete');
     Route::resource('food', FoodController::class);
    

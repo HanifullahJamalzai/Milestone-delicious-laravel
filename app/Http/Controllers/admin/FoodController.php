@@ -176,4 +176,17 @@ class FoodController extends Controller
         session()->flash('success', 'You have successfully Restored food');
         return redirect()->route('food.index');
     }
+
+    public function search(Request $request)
+    {   
+        $request->validate([
+            'search' => 'required'
+        ]);
+
+        $foods = Food::where('name', 'LIKE', $request->search)->paginate(10);
+
+        // $foods = Food::paginate(10);
+        return view('admin.food.index', compact('foods'));
+
+    }
 }

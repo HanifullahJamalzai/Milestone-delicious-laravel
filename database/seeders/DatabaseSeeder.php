@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Cook;
 use App\Models\Food;
 use App\Models\Gallery;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
         // Gallery::factory()->count(20)->create();
         // Cook::factory()->count(10)->create();
         // Testimonial::factory()->count(5)->create();
+            Contact::factory()->create();
 
     }
 }
