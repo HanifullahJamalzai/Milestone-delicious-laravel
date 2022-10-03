@@ -10,16 +10,22 @@ use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\landing\LandingController;
 use App\Models\Food;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Session;
 
 // Landing Page Routes
-Route::middleware(['SettingMiddleware'])->group(function(){
+Route::middleware(['SettingMiddleware', 'LanguageSwitcher'])->group(function(){
     Route::get('/', [LandingController::class, 'index'])->name('home');
     Route::get('/event', [LandingController::class, 'event'])->name('event');
     Route::get('/about', [LandingController::class, 'about'])->name('about');
 
     Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
     Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
+
+    Route::get('language/{language}', function($language){
+        Session::put('language', $language);
+        // dd(Session::get('language'));
+        return back();
+    })->name('language');
 });
 
 

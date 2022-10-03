@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+
+  <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <!-- Favicons -->
   <link href="{{ asset('landing_assets/img/favicon.png') }}" rel="icon">
   <link href="{{ asset('landing_assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -23,7 +25,7 @@
   <link href="{{ asset('landing_assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('landing_assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('landing_assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="{{ asset('landing_assets/css/style.css') }}" rel="stylesheet">
 
