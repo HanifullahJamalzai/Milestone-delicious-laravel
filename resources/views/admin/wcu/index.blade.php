@@ -10,11 +10,15 @@
         <li class="breadcrumb-item active">WCU</li>
       </ol>
       <div>
-        <span class="btn btn-primary btn-sm">
+
+        @cannot('Employee')
+          <span class="btn btn-primary btn-sm">
             <a href="{{ route('admin.wcu.create') }}">
-                <i class="bi bi-plus" style="font-size: 1.3em; color: white;"></i>
+              <i class="bi bi-plus" style="font-size: 1.3em; color: white;"></i>
             </a>
-        </span>
+          </span>
+        @endcannot
+
       </div>
     </nav>
   </div>

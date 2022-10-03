@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Why_choose_us;
+use Illuminate\Auth\Middleware\Authorize;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class WCUController extends Controller
 {
@@ -15,6 +18,7 @@ class WCUController extends Controller
      */
     public function index()
     {
+
         $data = Why_choose_us::all();
         // dd($data);
         return view('admin.wcu.index', compact('data'));
@@ -27,6 +31,8 @@ class WCUController extends Controller
      */
     public function create()
     {
+        Gate::authorize('Admin');
+
         return view('admin.wcu.create');
     }
 
@@ -38,6 +44,8 @@ class WCUController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('Admin');
+
         $request->validate([
             'title'       => 'required|min:4|max:255',
             'description' => 'required|min:5',
@@ -77,6 +85,8 @@ class WCUController extends Controller
      */
     public function edit($id)
     {
+        Gate::authorize('Admin');
+
         $data = Why_choose_us::findOrFail($id);
         // dd($data);
 
@@ -92,6 +102,8 @@ class WCUController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize('Admin');
+
         $request->validate([
             'title'       => 'required|min:4|max:255',
             'description' => 'required|min:5',
@@ -112,6 +124,8 @@ class WCUController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize('Admin');
+
         Why_choose_us::find($id)->delete();
         session()->flash('success', 'You have Successfully Deleted a Category');
         return redirect()->route('admin.wcu');
