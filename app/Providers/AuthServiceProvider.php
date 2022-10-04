@@ -4,7 +4,10 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Models\Category;
+use App\Models\Food;
 use App\Models\User;
+use App\Policies\FoodPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -17,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Food::class => FoodPolicy::class
     ];
 
     /**
@@ -35,5 +39,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('Admin', function(User $user){
             return $user->role == 1;
         });
+
+        // Gate::define('deletable-food', function(Food $food, Category $category){
+
+        //     return $food->category_id == $category->id;
+        
+        // });
+
     }
 }

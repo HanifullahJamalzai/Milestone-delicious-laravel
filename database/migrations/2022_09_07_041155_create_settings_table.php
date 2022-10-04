@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('phone')->nullable();
             $table->string('open_time');
-            $table->string('footer_description');
+            $table->text('footer_description');
             $table->string('twitter_link');
             $table->string('facebook_link');
             $table->string('instagram_link');

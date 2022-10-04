@@ -9,14 +9,14 @@
         </a>
       </li>
 
-      @can('Employee')
+      {{-- @can('Employee') --}}
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('admin.wcu') }}">
           <i class="bi bi-grid"></i>
           <span>WCU</span>
         </a>
       </li>
-      @endcan
+      {{-- @endcan --}}
       <!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('category.index') }}">

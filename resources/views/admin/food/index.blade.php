@@ -68,13 +68,24 @@
                             {{-- <td>{{ $item->category_id }}</td> --}}
                             <td>{{ $item->category->name ?? 'No Category' }}</td>
                             <td>{{ $item->price }}</td>
-                            <td><a href="{{ route('food.edit', ['food' => $item->id, 'slug' => Str::slug($item->name, '-')]) }}">Edit</a></td>
+                            @can('view', $item)
+                              <td><a href="{{ route('food.edit', ['food' => $item->id, 'slug' => Str::slug($item->name, '-')]) }}">Edit</a></td>
+                            @endcan
                             <td>
-                              <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger" >Delete</button>
-                              </form>
+                              
+                              @cannot('delete', auth()->user(), $item)
+                                
+                              {{-- @if(auth()->user()->role == 1) --}}
+
+                                <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
+                                  @csrf
+                                  @method('delete')
+                                  <button type="submit" class="btn btn-danger" >Delete</button>
+                                </form>
+                              {{-- @endif --}}
+
+                              @endcannot
+
                             </td>
                         </tr>
                     @endforeach

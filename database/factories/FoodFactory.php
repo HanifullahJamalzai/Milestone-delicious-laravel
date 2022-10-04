@@ -17,8 +17,9 @@ class FoodFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => fake()->randomNumber(3),
             'name' => fake()->word(),
-            'category_id' => fake()->biasedNumberBetween(1, 5),
+            'category_id' => fake()->biasedNumberBetween(1, 3),
             'description' => fake()->paragraph(3),
             'price'  => fake()->randomNumber(3),
             'photo'  => fake()->imageUrl($width = 100, $height = 100),

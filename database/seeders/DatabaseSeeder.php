@@ -25,25 +25,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(2)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Hanifullah',
-        //     'last_name' => 'Jamalzai',
-        //     'email' => 'hanifullah@example.com',
-        //     'password' => bcrypt('password'),
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Hanifullah',
+            'last_name' => 'Jamalzai',
+            'email' => 'hanifullah@example.com',
+            'role' => 1,
+            'password' => bcrypt('password'),
+        ]);
 
-        // Why_choose_us::factory()->count(3)->create();
-        // Category::factory()->count(3)->create();
-        // Food::factory()->count(15)->create();
-        // Setting::factory()->create();
-        // Hero::factory()->create();
-        // Slider::factory()->count(5)->create();
-        // Gallery::factory()->count(20)->create();
-        // Cook::factory()->count(10)->create();
-        // Testimonial::factory()->count(5)->create();
-            Contact::factory()->create();
+        Why_choose_us::factory()->count(3)->create();
+        Category::factory()->count(3)->create();
+        Food::factory()->count(15)->create();
+        Setting::factory()->create();
+        Hero::factory()->create();
+        Slider::factory()->count(5)->create();
+        Gallery::factory()->count(20)->create();
+        Cook::factory()->count(10)->create();
+        Testimonial::factory()->count(5)->create();
+        Contact::factory()->create();
 
     }
 }
