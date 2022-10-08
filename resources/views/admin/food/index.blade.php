@@ -73,7 +73,10 @@
                             @endcan
                             <td>
                               
-                              @cannot('delete', auth()->user(), $item)
+                              @can('delete', $item)
+                                
+
+                              {{-- @cannot('delete', auth()->user(), $item) --}}
                                 
                               {{-- @if(auth()->user()->role == 1) --}}
 
@@ -85,7 +88,9 @@
 
                               {{-- @endif --}}
 
-                              @endcannot
+                              {{-- @endcannot --}}
+                              
+                              @endcan
 
                             </td>
                         </tr>
