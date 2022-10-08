@@ -23,8 +23,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#book-a-table" class="book-a-table-btn scrollto">Book a table</a>
-
+      <a href="#book-a-table" class="book-a-table-btn scrollto">{{ __('book') }}</a>
     </div>
   </header>
   

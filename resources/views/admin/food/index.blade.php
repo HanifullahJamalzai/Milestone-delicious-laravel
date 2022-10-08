@@ -82,6 +82,7 @@
                                   @method('delete')
                                   <button type="submit" class="btn btn-danger" >Delete</button>
                                 </form>
+
                               {{-- @endif --}}
 
                               @endcannot

@@ -30,7 +30,7 @@ class FoodPolicy
      */
     public function view(User $user, Food $food)
     {
-        return $user->id === $food->user_id; 
+        return $user->id == $food->user_id; 
     }
 
     /**
