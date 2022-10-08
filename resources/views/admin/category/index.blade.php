@@ -22,6 +22,34 @@
 
   @include('common.alert')
 
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Horizontal Form</h5>
+
+      <!-- Horizontal Form -->
+      <form action="{{ (isset($category)) ? route('category.update',['category' => $category]) : route('category.store') }}" method="Post">
+        @csrf
+        @if(isset($category))
+          @method('put')
+        @endif
+
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Your Name</label>
+          <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" id="inputText" value="{{ (isset($category)) ? $category->name : Null}}" >
+          </div>
+        </div>
+        </div>
+        
+        <div class="text-center">
+          <button type="submit" class="btn {{ isset($category) ? 'btn-success' : 'btn-primary' }} ">{{ isset($category) ? 'Update Category' : 'Store Category' }}</button>
+        </div>
+      </form><!-- End Horizontal Form -->
+
+    </div>
+  </div>
+
+
 
 <section class="section">
     <div class="row align-items-top">

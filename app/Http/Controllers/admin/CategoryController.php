@@ -37,8 +37,13 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   $request->validate([
+            'name' => 'required'
+        ]);
+
+        Category::create($request->all());
+
+        return redirect('category');
     }
 
     /**
@@ -62,7 +67,8 @@ class CategoryController extends Controller
     // Route Model Binding
     public function edit(Category $category)
     {
-        dd($category);
+        $categories = Category::all();
+        return view('admin.category.index', compact('categories', 'category'));
     }
 
     /**
@@ -72,9 +78,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->validate([
+            'name' => 'required',
+        ]));
+
+        return redirect('category');
     }
 
     /**
