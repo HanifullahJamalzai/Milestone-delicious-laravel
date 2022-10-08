@@ -74,21 +74,18 @@
                             <td>
                               
                               @can('delete', $item)
-                                
 
-                              {{-- @cannot('delete', auth()->user(), $item) --}}
-                                
                               {{-- @if(auth()->user()->role == 1) --}}
 
-                                <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
+                              <x-delete-component action="food.destroy" routeId="food" :item="$item" />
+                              
+                                {{-- <form action="{{ route('food.destroy', ['food' => $item]) }}" method="post">
                                   @csrf
                                   @method('delete')
                                   <button type="submit" class="btn btn-danger" >Delete</button>
-                                </form>
+                                </form> --}}
 
                               {{-- @endif --}}
-
-                              {{-- @endcannot --}}
                               
                               @endcan
 

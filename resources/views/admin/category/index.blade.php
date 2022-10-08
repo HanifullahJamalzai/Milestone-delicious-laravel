@@ -76,7 +76,9 @@
                             <th scope="row">{{ $x++ }}</th>
                             <td>{{ $item->name }}</td>
                             <td><a href="{{ route('category.edit', ['category' => $item->id]) }}">Edit</a></td>
-                            <td>Delete</td>
+                            <td>
+                              <x-delete-component action="category.destroy" routeId="category" :item="$item" />
+                            </td>
                         </tr>
                     @endforeach
                   

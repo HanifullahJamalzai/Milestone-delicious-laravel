@@ -1,4 +1,4 @@
-<div class="card-body">
+  <div class="card-body">
     @if(session('success'))
     <div class="alert alert-success bg-success text-light border-0 alert-dismissible fade show" role="alert">
       {{ session('success') }}
@@ -6,12 +6,11 @@
     </div>
 
     @elseif (session('error'))
-    <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
-      {{ session('error') }}
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-
+      <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     @endif
 
-  </div>
+</div>
 
