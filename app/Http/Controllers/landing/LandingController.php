@@ -50,6 +50,10 @@ class LandingController extends Controller
     public function menu()
     {
         $food = Food::all();
+        
+        // $food = User::with('food')->get();
+        // $food = User::load('food')->get();
+
         $special = Special::all();
         return view('landing.menu', compact('food', 'special'));
     }

@@ -32,15 +32,17 @@
 </head>
 
 <body>
-
+  
   <!-- ======= Top Bar ======= -->
     @include('landing.layouts.partials.topbar')
   <!-- ======= Header ======= -->
   
    @include('landing.layouts.partials.header')
 
-  <!-- End Header -->
-  <main id="main">
+   <!-- End Header -->
+   <main id="main">
+    
+    @include('common.alert')
     
     @yield('contents')
 
@@ -59,10 +61,10 @@
   <script src="{{ asset('landing_assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('landing_assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('landing_assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('landing_assets/vendor/php-email-form/validate.js') }}"></script>
+  {{-- <script src="{{ asset('landing_assets/vendor/php-email-form/validate.js') }}"></script> --}}
 
   <!-- Template Main JS File -->
-  <script src="{{ asset('landing_assets/js/main.js') }}"></script>
+  {{-- <script src="{{ asset('landing_assets/js/main.js') }}"></script> --}}
 
 </body>
 

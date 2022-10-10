@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\WCUController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\landing\ContactMessageController;
 use App\Http\Controllers\landing\LandingController;
 use App\Models\Food;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ Route::middleware(['SettingMiddleware', 'LanguageSwitcher'])->group(function(){
     Route::get('/about', [LandingController::class, 'about'])->name('about');
 
     Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+    Route::post('/contact/message', [ContactMessageController::class, 'store'])->name('message.store');
     Route::get('/menu', [LandingController::class, 'menu'])->name('menu');
 
     Route::get('language/{language}', function($language){
