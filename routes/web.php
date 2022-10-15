@@ -43,9 +43,9 @@ Route::middleware(['guest'])->group(function () {
 
 
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
 
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
     
     Route::get('/wcu', [WCUController::class, 'index'])->name('admin.wcu');
