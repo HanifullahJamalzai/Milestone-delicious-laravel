@@ -53,6 +53,7 @@
                   <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
               </div><!-- End Logo -->
+              @include('common.alert')
 
               <div class="card mb-3">
 

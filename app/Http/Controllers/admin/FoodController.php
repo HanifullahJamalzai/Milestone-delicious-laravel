@@ -183,7 +183,7 @@ class FoodController extends Controller
             'search' => 'required'
         ]);
 
-        $foods = Food::where('name', 'LIKE', $request->search)->paginate(10);
+        $foods = Food::where('name', 'LIKE', '%'.$request->search.'%')->paginate(10);
 
         // $foods = Food::paginate(10);
         return view('admin.food.index', compact('foods'));
