@@ -64,7 +64,7 @@
                             <td>
                                 <img src="{{ $item->photo }}" alt="" width="50">
                             </td>
-                            <td>{{ $item->name }}</td>
+                            <td><a href="{{ route('food.show', ['food'=> $item->id]) }}"> {{Str::limit($item->name, 5, '...')  }}</a></td>
                             {{-- <td>{{ $item->category_id }}</td> --}}
                             <td>{{ $item->category->name ?? 'No Category' }}</td>
                             <td>{{ $item->price }}</td>
