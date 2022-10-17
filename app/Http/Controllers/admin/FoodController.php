@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Food;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -189,4 +190,41 @@ class FoodController extends Controller
         return view('admin.food.index', compact('foods'));
 
     }
+
+
+    public function commentStore(Request $request, Food $food)
+    {
+        auth()->user()->comments()->create([
+            'food_id'     => $food->id,
+            'description' => $request->description
+        ]);
+
+        return back();
+    }
+    
+
+    public function deleteComment(Comment $comment)
+    {
+        $comment->delete();
+        return back();
+    }
+
+    public function editComment(Comment $comment)
+    {
+
+        return view('admin.edit', compact('comment'));
+    }
+
+    public function commentUpdate(Request $request, Comment $comment)
+    {
+        $comment->update([
+            'description' => $request->description
+        ]);
+
+        return redirect('admin');
+    }
+
+    
+
+
 }

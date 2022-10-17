@@ -24,6 +24,21 @@
           </div>
         </div>
         
+        <form action="{{ route('commentStore', ['food' => $item->id]) }}" method="post">
+          @csrf
+          <input type="text" name="description" placeholder="comment">
+          <button>Submit</button>
+        </form>
+        @foreach ($item->comments as $item)
+            <p>
+              {{ $item->description }} 
+              @if(auth()->user()->id == $item->user_id)
+                <a href="{{ route('editComment', ['comment' => $item->id]) }}">Edit</a> <a href="{{ route('deleteComment', ['comment'=> $item->id]) }}">Delete</a> 
+              @endif
+            </p>
+            <hr>
+        @endforeach
+        
         @endforeach
       </div>
 

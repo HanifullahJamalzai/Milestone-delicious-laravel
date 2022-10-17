@@ -58,15 +58,18 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function(){
     // Resource Route
     Route::resource('category', CategoryController::class);
 
+    Route::put('/comment/{comment}', [FoodController::class, 'commentUpdate'])->name('commentUpdate');
+    Route::get('/comment/{comment}', [FoodController::class, 'deleteComment'])->name('deleteComment');
+    Route::get('/comment/{comment}/edit', [FoodController::class, 'editComment'])->name('editComment');
+    Route::post('/food/comment/{food}', [FoodController::class, 'commentStore'])->name('commentStore');
     Route::get('/food/{id}/edit/{slug}', [FoodController::class, 'edit'])->name('food.edit');
     Route::get('food/search', [FoodController::class, 'search'])->name('food.search');
     Route::get('food/trash', [FoodController::class, 'trash'])->name('food.trash');
     Route::delete('food/permanent-delete/{food}', [FoodController::class, 'PermanentDelete'])->name('food.pdelete');
-    
+    Route::get('food/restore/{food}', [FoodController::class, 'RestoreItem'])->name('food.restoreItem');
+
     Route::resource('food', FoodController::class);
    
-    Route::get('food/restore/{food}', [FoodController::class, 'RestoreItem'])->name('food.restoreItem');
-    
 });
 
 
