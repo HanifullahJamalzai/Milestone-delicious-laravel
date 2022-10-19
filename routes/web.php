@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\WCUController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\auth\ResetPasswordController;
 use App\Http\Controllers\auth\VerifyUserController;
 use App\Http\Controllers\landing\ContactMessageController;
 use App\Http\Controllers\landing\LandingController;
@@ -38,7 +39,11 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/verify/{token}', [VerifyUserController::class, 'verify'])->name('verify.user');
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
-    Route::get('/register', [RegisterController::class, 'index'])->name('register');    
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');  
+    Route::get('/reset', [ResetPasswordController::class, 'index'])->name('reset');  
+    Route::post('/reset', [ResetPasswordController::class, 'reset'])->name('reset');  
+    Route::get('/reset/{token}', [ResetPasswordController::class, 'ResetToken']);
+    Route::post('/reset/password', [ResetPasswordController::class, 'ResetPassword'])->name('ResetPassword');
 });
 
 
