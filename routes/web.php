@@ -37,10 +37,10 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [RegisterController::class, 'register'])->name('register.user');
     Route::get('/verify/user', [VerifyUserController::class, 'index'])->name('verify.index');
     Route::get('/verify/{token}', [VerifyUserController::class, 'verify'])->name('verify.user');
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::get('/login', [LoginController::class, 'index'])->name('login.show');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/register', [RegisterController::class, 'index'])->name('register');  
-    Route::get('/reset', [ResetPasswordController::class, 'index'])->name('reset');  
+    Route::get('/reset', [ResetPasswordController::class, 'index'])->name('reset.show');  
     Route::post('/reset', [ResetPasswordController::class, 'reset'])->name('reset');  
     Route::get('/reset/{token}', [ResetPasswordController::class, 'ResetToken']);
     Route::post('/reset/password', [ResetPasswordController::class, 'ResetPassword'])->name('ResetPassword');
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/comment/{comment}', [FoodController::class, 'deleteComment'])->name('deleteComment');
     Route::get('/comment/{comment}/edit', [FoodController::class, 'editComment'])->name('editComment');
     Route::post('/food/comment/{food}', [FoodController::class, 'commentStore'])->name('commentStore');
-    Route::get('/food/{id}/edit/{slug}', [FoodController::class, 'edit'])->name('food.edit');
+    Route::get('/food/{id}/edit/{slug}', [FoodController::class, 'edit'])->name('food.myedit');
     Route::get('food/search', [FoodController::class, 'search'])->name('food.search');
     Route::get('food/trash', [FoodController::class, 'trash'])->name('food.trash');
     Route::delete('food/permanent-delete/{food}', [FoodController::class, 'PermanentDelete'])->name('food.pdelete');

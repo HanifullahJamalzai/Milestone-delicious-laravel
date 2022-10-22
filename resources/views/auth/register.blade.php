@@ -117,7 +117,7 @@
 
                   </form>
                   <div class="col-12" style="text-align: center;">
-                    <p class="small mb-0">Have an account? <a href="{{ route('login') }}">Login</a></p>
+                    <p class="small mb-0">Have an account? <a href="{{ route('login.show') }}">Login</a></p>
                   </div>
 
                 </div>

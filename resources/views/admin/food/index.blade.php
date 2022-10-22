@@ -69,7 +69,7 @@
                             <td>{{ $item->category->name ?? 'No Category' }}</td>
                             <td>{{ $item->price }}</td>
                             @can('view', $item)
-                              <td><a href="{{ route('food.edit', ['food' => $item->id, 'slug' => Str::slug($item->name, '-')]) }}">Edit</a></td>
+                              <td><a href="{{ route('food.myedit', ['food' => $item->id, 'slug' => Str::slug($item->name, '-')]) }}">Edit</a></td>
                             @endcan
                             <td>
                               
