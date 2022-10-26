@@ -9,6 +9,8 @@ use App\Models\Food;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
+use Intervention\Image\ImageManagerStatic as Image;
+
 class FoodController extends Controller
 {
     /**
@@ -18,6 +20,7 @@ class FoodController extends Controller
      */
     public function index()
     {
+        // Gate::authorize('Admin');
         // $foods = Food::all();
         $foods = Food::paginate(10);
         return view('admin.food.index', compact('foods'));
@@ -59,9 +62,16 @@ class FoodController extends Controller
 
         if($request->hasFile('photo'))
         {
+            
             // dd($request->photo);
             $fileName = 'food_'.date('YmdHis').'_'.rand(10, 10000).'.'.$request->photo->extension();
+            
+            // PHP intervention
+            // $img = Image::make($request->file('photo'));
+            // $img->resize(200, 200);
+            // $img->save('storage/photo/food/'.$fileName);
             // return $fileName;
+
             $request->photo->storeAs('/photo/food', $fileName, 'public');
             // Store to DB
             $food->photo = '/storage/photo/food/'.$fileName;
